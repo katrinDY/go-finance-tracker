@@ -7,6 +7,7 @@ import (
 	"log"
 	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
+	internaldb "github.com/katrinDY/go-finance-tracker/internal/db"
 )
 
 func main() {
@@ -41,4 +42,6 @@ func main() {
 	}
 
 	fmt.Println("Successfully connected to db!")
+
+	internaldb.RunMigrations(db)
 }
